@@ -5,7 +5,7 @@
 import axios from 'axios';
 import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://just-paulie-appointmentt-3311d1e6.koyeb.app/api';
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
