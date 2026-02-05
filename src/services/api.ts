@@ -5,7 +5,10 @@
 import axios from 'axios';
 import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://just-paulie-appointmentt-3311d1e6.koyeb.app/api';
+// Fallback to Koyeb URL if VITE_API_URL is missing. 
+// Ensure it starts with https:// to prevent it being treated as a relative path.
+const rawUrl = import.meta.env.VITE_API_URL || 'https://just-paulie-appointmentt-3311d1e6.koyeb.app/api';
+const API_BASE_URL = rawUrl.startsWith('http') ? rawUrl : `https://${rawUrl}`;
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
